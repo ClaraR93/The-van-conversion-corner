@@ -4,7 +4,7 @@ from vanconversioncorner.models import Question, Comment
 
 
 @app.route("/")
-def home():
+def base():
     return render_template("base.html")
 
 
