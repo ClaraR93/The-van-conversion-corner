@@ -10,9 +10,11 @@
   <body>
     <nav>
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Post Your Question</a></li>
-        <li><a href="#">Media</a></li>
+        <li><a href="{{ url_for('base') }}">Home</a></li>
+        <li>
+          <a href="{{ url_for('post-your-questions') }}">Post Your Question</a>
+        </li>
+        <li><a href="{{ url_for('media') }}">Media</a></li>
       </ul>
     </nav>
 
