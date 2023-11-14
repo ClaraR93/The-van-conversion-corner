@@ -8,7 +8,8 @@ class Question(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     question_title = db.Column(db.String(50), unique=True, nullable=False)
     question_body = db.Column(db.Text, nullable=False)
-    question_timestamp = db.Column(db.DateTime, default=datetime.utcnow) # code used from python standard library, see README credits
+    # code used from python standard library, see README credits
+    question_timestamp = db.Column(db.DateTime, default=datetime.utcnow)
     comments = db.relationship(
         "Comment", backref="category", cascade="all, delete", lazy=True)
 
@@ -20,7 +21,8 @@ class Comment(db.Model):
     # schema for Comment model
     id = db.Column(db.Integer, primary_key=True)
     comment_body = db.Column(db.Text, nullable=False)
-    comment_timestamp = db.Column(db.DateTime, default=datetime.utcnow) # code used from python standard library, see README credits
+    # code used from python standard library, see README credits
+    comment_timestamp = db.Column(db.DateTime, default=datetime.utcnow)
     question_id = db.Column(db.Integer, db.ForeignKey(
         "question.id", ondelete="CASCADE"))
 
