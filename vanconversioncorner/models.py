@@ -14,7 +14,8 @@ class Question(db.Model):
         "Comment", backref="category", cascade="all, delete", lazy=True)
 
     def __repre__(self):
-        return self.question_title, self.question_body
+        return "#{0} - Question: {1} | Further Information: {2}".format(
+            self.id, self.question_title, self.question_body)
 
 
 class Comment(db.Model):
@@ -27,4 +28,5 @@ class Comment(db.Model):
         "question.id", ondelete="CASCADE"))
 
     def __repre__(self):
-        return self.comment_body
+        return "#{0} - Comment: {1} | {2}".format(
+            self.id, self.comment_body, self.comment_timestamp)
